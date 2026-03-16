@@ -19,11 +19,12 @@ sensitive assets, which collectively defined the initial attack surface.
 > ● **Server** **IP:** 15.206.47.5:8080 (identified from Dockerfile
 > comments)
 >
-> <img src="./3ceckbfn.png" style="width:6.5in;height:1.46875in" /><img src="./gfykd2hk.png" style="width:6.5in;height:2.61458in" />●
+> <img src="./images/3ceckbfn.png" style="width:6.5in;height:1.46875in" /><img src="./images/gfykd2hk.png" style="width:6.5in;height:2.61458in" />
+●
 > **Initial** **Credentials:** support@strikebank.com / newPassword
 > (observed in report logs)
 
-<img src="./m5iflorj.png" style="width:6.5in;height:0.96875in" />
+<img src="./images/m5iflorj.png" style="width:6.5in;height:0.96875in" />
 
 **2.** **GitHub** **Asset** **Analysis**
 
@@ -35,11 +36,12 @@ the source code for the bank’s employee portal.
 Initial inspection of login.php showed that sensitive values had been
 sanitized in the current version of the code:
 
-<img src="./2pfczlna.png" style="width:6.5in;height:2.86458in" />\$logins
+<img src="./images/2pfczlna.png" style="width:6.5in;height:2.86458in" />
+\$logins
 = array('' =\> ''); // Credentials removed \$secret = ''; // Secret
 removed
 
-<img src="./qqogocmr.png" style="width:6.5in;height:3.5in" /><img src="./t1jd01fz.png" style="width:6.5in;height:1.16667in" />
+<img src="./images/qqogocmr.png" style="width:6.5in;height:3.5in" /><img src="./images/t1jd01fz.png" style="width:6.5in;height:1.16667in" />
 
 Revealed ip and port from docker file
 
@@ -60,10 +62,10 @@ that had not been purged from the repository history.
 
 **Recovered** **Secret:**
 
-> <img src="./fjrjxtmv.png" style="width:6.5in;height:0.30208in" /><img src="./2iyhx20d.png" style="width:6.5in;height:2.48958in" /><img src="./sjqrztcr.png" style="width:6.5in;height:2.03125in" /><img src="./fk2yhq4h.png" style="width:6.5in;height:1.94792in" />●
+> <img src="./images/fjrjxtmv.png" style="width:6.5in;height:0.30208in" /><img src="./images/2iyhx20d.png" style="width:6.5in;height:2.48958in" /><img src="./images/sjqrztcr.png" style="width:6.5in;height:2.03125in" /><img src="./images/fk2yhq4h.png" style="width:6.5in;height:1.94792in" />●
 > **JWT** **Signing** **Secret:** Str!k3B4nkSup3rs3cr37
 
-<img src="./bupj1igq.png" style="width:6.5in;height:3.41667in" />
+<img src="./images/bupj1igq.png" style="width:6.5in;height:3.41667in" />
 
 **4.** **JWT** **Forgery** **&** **Privilege** **Escalation**
 
@@ -84,7 +86,7 @@ A PHP script (solve.php) was created to replicate the server’s Base64URL
 encoding and HMAC-SHA256 signing process. The payload
 {"username":"admin"} was signed using the recovered JWT secret.
 
-<img src="./qnce34xa.png" style="width:6.5in;height:2.05208in" /><img src="./2oqnmiff.png" style="width:6.5in;height:1.11458in" />
+<img src="./images/qnce34xa.png" style="width:6.5in;height:2.05208in" /><img src="./images/2oqnmiff.png" style="width:6.5in;height:1.11458in" />
 
 **5.** **Final** **Execution**
 
