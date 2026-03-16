@@ -1,0 +1,27 @@
+Ah yes, "Dead Easy Stuff" — or as cryptographers fondly call it, **DES**.
+
+Once the gold standard in encryption. Now? The digital equivalent of locking your house with a twist-tie and yelling "No robbers, please!"
+
+Here's the thing: this file was encrypted with DES. Twice. Oooh, scary.
+
+Except... the person who encrypted it used a **weak key**. You know, the kind of key that turns DES into **Dumb Encryption Standard**. With these keys, running `enc(enc(pt))` is basically just a dramatic way of saying:  
+**"Let me show you the plaintext again, but with extra steps."**
+
+So, if you were about to fire up your multi-core brute-force engine and spin up a VM in the cloud — maybe... don’t?
+
+Just encrypt the file again.  
+Yes. **Encrypt**. Again.
+
+Because this challenge isn’t about cryptographic strength. It’s about **you**, the solver, overcomplicating things that are... well...
+
+Dead. Easy. Stuff.
+
+---
+
+**Moral of the story:** Never underestimate the power of bad crypto decisions and a good pun.
+
+Oh, and here's what you were looking for:
+
+**BreachPoint{Told_you_it_was_DEAD_EASY}**
+
+P.S. If you're reading this after 45 minutes of debugging OpenSSL commands... we’re not laughing *at* you. We're laughing *near* you.
